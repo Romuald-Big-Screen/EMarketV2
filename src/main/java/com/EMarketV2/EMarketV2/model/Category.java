@@ -18,7 +18,7 @@ public class Category implements Serializable {
 
     @NotEmpty
     @Size(min=4, max=15)
-    private String myCategory;
+    private String categoryName;
     @Size(min=3, max=15)
     private String description;
     @Lob
@@ -30,7 +30,7 @@ public class Category implements Serializable {
 
     public Category(String myCategory, String description, byte[] photo, String myPhoto) {
         super();
-        this.myCategory = myCategory;
+        this.categoryName = categoryName;
         this.description = description;
         this.photo = photo;
         this.myPhoto = myPhoto;
@@ -51,11 +51,11 @@ public class Category implements Serializable {
     }
 
     public String getMyCategory() {
-        return myCategory;
+        return categoryName;
     }
 
     public void setMyCategory(String myCategory) {
-        this.myCategory = myCategory;
+        this.categoryName = categoryName;
     }
 
     public String getDescription() {

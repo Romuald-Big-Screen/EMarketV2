@@ -12,15 +12,22 @@ public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCommande;
-    private Date dateCommande;
+    private Long idOrder;
+    private Date dateOrder;
 
 
     @OneToMany(mappedBy="ordered")
     private List<OrderedLine> orderedLines;
 
     @ManyToOne
-    @JoinColumn(name="idClient")
+    @JoinColumn(name="idCostumer")
     private Customer customer;
+
+    public Order() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+
 
 }
