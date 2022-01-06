@@ -12,7 +12,7 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProduct;
+    private Long productId;
     @NotEmpty
     @Size(min=4, max=15)
     private String designation;
@@ -41,11 +41,11 @@ public class Product implements Serializable {
     }
 
     public Long getIdProduct() {
-        return idProduct;
+        return productId;
     }
 
     public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
+        this.productId = productId;
     }
 
     public String getDesignation() {

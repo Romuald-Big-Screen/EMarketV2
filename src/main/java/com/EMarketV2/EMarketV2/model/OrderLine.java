@@ -4,28 +4,28 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="ORDERED_LINE")
-public class OrderedLine implements Serializable {
+@Table(name="ORDER_LINE")
+public class OrderLine implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLine;
     @ManyToOne
-    @JoinColumn(name = "idOrdered")
-    private Order ordered;
+    @JoinColumn(name = "orderId")
+    private Order order;
     @ManyToOne
-    @JoinColumn(name = "idProduct")
+    @JoinColumn(name = "productId")
     private Product product;
     private int quantity;
     private double price;
 
-    public OrderedLine() {
+    public OrderLine() {
     }
 
-    public OrderedLine(Order ordered, Product product, int quantity, double price) {
+    public OrderLine(Order ordered, Product product, int quantity, double price) {
         super();
-        this.ordered = ordered;
+        this.order = order;
         this.product = product;
         this.quantity = quantity;
         this.price = price;
@@ -40,11 +40,11 @@ public class OrderedLine implements Serializable {
     }
 
     public Order getOrdered() {
-        return ordered;
+        return order;
     }
 
     public void setOrdered(Order ordered) {
-        this.ordered = ordered;
+        this.order = order;
     }
 
     public Product getProduct() {

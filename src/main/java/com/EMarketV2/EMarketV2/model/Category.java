@@ -6,6 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name="CATEGORY")
@@ -14,7 +15,7 @@ public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long idCategory;
+    private Long categoryId;
 
     @NotEmpty
     @Size(min=4, max=15)
@@ -23,17 +24,17 @@ public class Category implements Serializable {
     private String description;
     @Lob
     private byte[] photo;
-    private String myPhoto;
+    private String photoName;
 
     @OneToMany(mappedBy="category")
-    private Collection<Product> products;
+    private List<Product> products;
 
     public Category(String myCategory, String description, byte[] photo, String myPhoto) {
         super();
         this.categoryName = categoryName;
         this.description = description;
         this.photo = photo;
-        this.myPhoto = myPhoto;
+        this.photoName = photoName;
         this.products = products;
     }
 
@@ -43,11 +44,11 @@ public class Category implements Serializable {
     }
 
     public Long getIdCategory() {
-        return idCategory;
+        return categoryId;
     }
 
     public void setIdCategory(Long idCategory) {
-        this.idCategory = idCategory;
+        this.categoryId = idCategory;
     }
 
     public String getMyCategory() {
@@ -75,18 +76,18 @@ public class Category implements Serializable {
     }
 
     public String getMyPhoto() {
-        return myPhoto;
+        return photoName;
     }
 
     public void setMyPhoto(String myPhoto) {
-        this.myPhoto = myPhoto;
+        this.photoName = photoName;
     }
 
-    public Collection<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Collection<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 }
