@@ -29,7 +29,7 @@ public class Category implements Serializable {
     @OneToMany(mappedBy="category")
     private List<Product> products;
 
-    public Category(String myCategory, String description, byte[] photo, String myPhoto) {
+    public Category(String categoryName, String description, byte[] photo, String photoName, List<Product> products) {
         super();
         this.categoryName = categoryName;
         this.description = description;
@@ -43,19 +43,19 @@ public class Category implements Serializable {
         // TODO Auto-generated constructor stub
     }
 
-    public Long getIdCategory() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setIdCategory(Long idCategory) {
-        this.categoryId = idCategory;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getMyCategory() {
+    public String getCategoryName() {
         return categoryName;
     }
 
-    public void setMyCategory(String myCategory) {
+    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
 
@@ -75,11 +75,11 @@ public class Category implements Serializable {
         this.photo = photo;
     }
 
-    public String getMyPhoto() {
+    public String getPhotoName() {
         return photoName;
     }
 
-    public void setMyPhoto(String myPhoto) {
+    public void setPhotoName(String photoName) {
         this.photoName = photoName;
     }
 
