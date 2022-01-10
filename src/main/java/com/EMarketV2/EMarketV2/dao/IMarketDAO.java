@@ -24,8 +24,8 @@ public interface IMarketDAO {
 
     /* USER  */
     public void addUser(User u );
-    public void attributeRole(Role r, Long userID);
-    public Order saveOrder(Cart p , Customer c);
+    public void attributeRole(Role r, Long userId);
+    public Order saveOrder(Cart ca , Customer c);
 
 
 }

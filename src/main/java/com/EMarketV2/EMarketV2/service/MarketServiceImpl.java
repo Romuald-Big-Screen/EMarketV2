@@ -2,9 +2,10 @@ package com.EMarketV2.EMarketV2.service;
 
 import com.EMarketV2.EMarketV2.dao.IMarketDAO;
 import com.EMarketV2.EMarketV2.model.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 public class MarketServiceImpl implements ICategoriesAdminService{
     private IMarketDAO dao;
 
@@ -14,27 +15,27 @@ public class MarketServiceImpl implements ICategoriesAdminService{
 
     @Override
     public Long addCategory(Category c) {
-        return null;
+        return dao.addCategory(c);
     }
 
     @Override
     public void deleteCategory(Long catId) {
-
+        dao.deleteCategory(catId);
     }
 
     @Override
     public void updateCategory(Category c) {
-
+        dao.updateCategory(c);
     }
 
     @Override
     public void addUser(User u) {
-
+        dao.addUser(u);
     }
 
     @Override
-    public void attributeRole(Role r, Long userID) {
-
+    public void attributeRole(Role r, Long userId) {
+        dao.attributeRole(r,userId);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class MarketServiceImpl implements ICategoriesAdminService{
 
     @Override
     public List<Product> productsByCategory(Long catId) {
-        return null;
+        return dao.listProductsByCategory(catId);
     }
 
     @Override

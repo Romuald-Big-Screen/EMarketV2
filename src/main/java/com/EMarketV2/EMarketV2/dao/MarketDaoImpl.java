@@ -20,7 +20,7 @@ public class MarketDaoImpl implements IMarketDAO{
 
     @Override
     public List<Category> listCategories() {
-        Query req=em.createQuery("select c from Category c");
+        Query req=em.createQuery("select c from `Category` c");
         return req.getResultList();
     }
 
@@ -50,26 +50,26 @@ public class MarketDaoImpl implements IMarketDAO{
 
     @Override
     public List<Product> listProducts() {
-        Query req=em.createQuery("select p from Product p");
+        Query req=em.createQuery("select p from `Product` p");
         return req.getResultList();
     }
 
     @Override
     public List<Product> listProductsByKw(String kw) {
-        Query req=em.createQuery("select p from Product p where p.designation like  :x or p.description like :x");
+        Query req=em.createQuery("select p from `Product` p where p.designation like  :x or p.description like :x");
         req.setParameter("x", "%"+kw+"%");
         return req.getResultList();
     }
 
     @Override
     public List<Product> listProductsSelected() {
-        Query req=em.createQuery("select p from Product p where p.selected=true");
+        Query req=em.createQuery("select p from `Product` p where p.selected=true");
         return req.getResultList();
     }
 
     @Override
     public List<Product> listProductsByCategory(Long catId) {
-        Query req=em.createQuery("select p from Product p where p.category.categoryId=:x");
+        Query req=em.createQuery("select p from `Product` p where p.category.categoryId=:x");
         req.setParameter("x", catId);
         return req.getResultList();
     }
