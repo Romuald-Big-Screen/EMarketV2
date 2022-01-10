@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value ="/catAdmin")
 public class AdminCategoryController {
     @Autowired
-    private ICategoriesAdminService service;
+    public ICategoriesAdminService service;
     @RequestMapping(value ="/index")
     public String index(Model model){
          return "addCategories";
