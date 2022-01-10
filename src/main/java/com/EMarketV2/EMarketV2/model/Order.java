@@ -19,16 +19,16 @@ public class Order implements Serializable {
 
 
     @OneToMany(mappedBy="order")
-    private Collection<OrderLine> lines;
+    private Collection<OrderLine> items;
 
     @ManyToOne
     @JoinColumn(name="costumerId")
     private Customer customer;
 
-    public Order(Date orderDate, List<OrderLine> lines, Customer customer) {
+    public Order(Date orderDate, Collection<OrderLine> items, Customer customer) {
         super();
         this.orderDate = orderDate;
-        this.lines = lines;
+        this.items = items;
         this.customer = customer;
     }
 
@@ -53,12 +53,12 @@ public class Order implements Serializable {
         this.orderDate = orderDate;
     }
 
-    public Collection<OrderLine> getLines() {
-        return lines;
+    public Collection<OrderLine> getItems() {
+        return items;
     }
 
-    public void setLines(List<OrderLine> lines) {
-        this.lines = lines;
+    public void setItems(Collection<OrderLine> items) {
+        this.items = items;
     }
 
     public Customer getCustomer() {

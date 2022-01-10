@@ -19,7 +19,7 @@ public class MarketDaoImpl implements IMarketDAO{
     }
 
     @Override
-    public List<Category> listCategorys() {
+    public List<Category> listCategories() {
         Query req=em.createQuery("select c from Category c");
         return req.getResultList();
     }
@@ -104,10 +104,15 @@ public class MarketDaoImpl implements IMarketDAO{
     }
 
     @Override
-    public Order saveOrder(Cart p, Customer c) {
+    public Order saveOrder(Cart ca, Customer c) {
         em.persist(c);
         Order o=new Order();
         o.setOrderDate(new Date());
-        return null;
+        o.setItems(ca.getItems());
+        for(OrderLine ol:ca.getItems()){
+            em.persist(ol);
+        }
+        em.persist(o);
+        return o;
     }
 }

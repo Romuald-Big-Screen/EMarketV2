@@ -8,7 +8,7 @@ public interface IMarketDAO {
 
     /* CATEGORIE  */
     public Long addCategory(Category c );
-    public List<Category> listCategorys();
+    public List<Category> listCategories();
     public Category getCategory(Long catId);
     public void deleteCategory(Long catId);
     public void updateCategory(Category c);
